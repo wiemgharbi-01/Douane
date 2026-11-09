@@ -3,12 +3,17 @@ package com.example.douane;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -37,8 +42,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Nfa3lou edge to edge bech ykoun design 3asri
+        WindowCompat.enableEdgeToEdge(getWindow());
         // N7ottou el layout mte3 el MainActivity
         setContentView(R.layout.activity_main);
+
+        // N3adlou el vertical padding m3a les insets mte3 el mobile (status bar mel fou9 w navigation bar mel louta)
+        View root = findViewById(R.id.scroll_main_wg);
+        int initialPaddingTop = root.getPaddingTop();
+        int initialPaddingBottom = root.getPaddingBottom();
+        int initialPaddingLeft = root.getPaddingLeft();
+        int initialPaddingRight = root.getPaddingRight();
+
+        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(
+                initialPaddingLeft + systemBars.left,
+                initialPaddingTop + systemBars.top,
+                initialPaddingRight + systemBars.right,
+                initialPaddingBottom + systemBars.bottom
+            );
+            return insets;
+        });
 
         // Nrecuperiw les elements mel XML bel findViewById
         etNom = findViewById(R.id.et_nom_wg);

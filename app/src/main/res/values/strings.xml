@@ -1,3 +1,44 @@
 <resources>
-    <string name="app_name">Douane</string>
+    <string name="app_name">Douane Temporelle</string>
+    <string name="titre_formulaire">Poste de Douane Temporelle</string>
+    <string name="sous_titre_formulaire">Enregistrement et contrôle des voyageurs</string>
+    
+    <string name="label_nom">Nom complet du voyageur</string>
+    <string name="hint_nom">Ex: Marty McFly</string>
+    
+    <string name="label_annee_naissance">Année de naissance</string>
+    <string name="hint_annee_naissance">Ex: 1968</string>
+    
+    <string name="label_annee_destination">Année de destination</string>
+    <string name="hint_annee_destination">Ex: 2050</string>
+    
+    <string name="label_motif">Motif du voyage :</string>
+    <string name="motif_tourisme">Tourisme</string>
+    <string name="motif_modification">Modification du passé</string>
+    <string name="motif_fuite">Fuite</string>
+    
+    <string name="btn_inspecter">Inspecter le profil</string>
+    
+    <!-- Erreurs de validation -->
+    <string name="err_nom_requis">Veuillez renseigner le nom du voyageur</string>
+    <string name="err_naissance_requise">Veuillez renseigner l\'année de naissance</string>
+    <string name="err_destination_requise">Veuillez renseigner l\'année de destination</string>
+    <string name="err_annee_invalide">Année invalide (doit être un nombre valide)</string>
+
+    <!-- Activité 2 : VerificationActivity -->
+    <string name="titre_scanner">SCANNER DE PARADOXE</string>
+    <string name="titre_passeport">RÉPUBLIQUE TEMPORELLE</string>
+    <string name="sous_titre_passeport">PASSEPORT DE VOYAGE TEMPOREL</string>
+    <string name="label_nom_pass">NOM :</string>
+    <string name="label_age_pass">ÂGE TEMPOREL :</string>
+    <string name="label_motif_pass">MOTIF :</string>
+    <string name="btn_approuver">Approuver le saut temporel</string>
+    <string name="btn_refuser">Refuser (Risque de paradoxe)</string>
+    <string name="alerte_paradoxe_texte">ATTENTION : Risque critique de paradoxe temporel détecté. Bouton d\'approbation verrouillé !</string>
+
+    <!-- Activité 3 : ResultActivity -->
+    <string name="titre_verdict">VERDICT DOUANIER</string>
+    <string name="msg_approuve">Bon voyage %1$s !</string>
+    <string name="msg_refuse">%1$s est en état d\'arrestation temporelle !</string>
+    <string name="btn_nouveau_voyageur">Nouveau voyageur</string>
 </resources>

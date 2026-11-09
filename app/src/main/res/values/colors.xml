@@ -2,4 +2,25 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#1E3A8A</color>
+    <color name="primary_variant">#172554</color>
+    <color name="accent_color">#0284C7</color>
+    <color name="bg_light">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="border_color">#CBD5E1</color>
+
+    <!-- Couleurs Passeport & Billet -->
+    <color name="passport_bg">#F4F1EA</color>
+    <color name="passport_header">#1E293B</color>
+    <color name="passport_border">#D1C7B7</color>
+
+    <!-- Couleurs Verdict Activité 3 -->
+    <color name="verdict_approuve_bg">#1B5E20</color>
+    <color name="verdict_refuse_bg">#B71C1C</color>
+    <color name="btn_approuver_bg">#16A34A</color>
+    <color name="btn_refuser_bg">#DC2626</color>
+    <color name="btn_disabled_bg">#94A3B8</color>
+    <color name="paradox_warning">#DC2626</color>
 </resources>

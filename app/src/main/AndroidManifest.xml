@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Douane">
+
+        <!-- Activite 1 : Le Formulaire d'Enregistrement -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -21,6 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Activite 2 : Le Scanner de Paradoxe -->
+        <activity
+            android:name=".VerificationActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Activite 3 : Le Verdict -->
+        <activity
+            android:name=".ResultActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

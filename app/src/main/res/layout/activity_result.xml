@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root_result_wg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:background="@color/verdict_approuve_bg"
+    tools:context=".ResultActivity">
+
+    <!-- Icône du verdict -->
+    <ImageView
+        android:id="@+id/iv_icone_verdict_wg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Icône de statut du verdict"
+        android:src="@drawable/ic_check_circle" />
+
+    <!-- Titre du verdict -->
+    <TextView
+        android:id="@+id/tv_titre_verdict_wg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:letterSpacing="0.05"
+        android:text="@string/titre_verdict"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Message personnalisé -->
+    <TextView
+        android:id="@+id/tv_message_verdict_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Bon voyage Marty McFly !" />
+
+    <!-- Bouton pour revenir à la MainActivity en fermant les activités précédentes -->
+    <Button
+        android:id="@+id/btn_nouveau_voyageur_wg"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/btn_nouveau_voyageur"
+        android:textAllCaps="false"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="160dp"
+    android:viewportWidth="120"
+    android:viewportHeight="160">
+    <!-- Cadre / Fond photo passeport -->
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M8,8h104a8,8 0,0 1,8 8v128a8,8 0,0 1,-8 8H8a8,8 0,0 1,-8 -8V16A8,8 0,0 1,8 8z" />
+    <!-- Tête -->
+    <path
+        android:fillColor="#64748B"
+        android:pathData="M60,40m-24,0a24,24 0,1 1,48 0a24,24 0,1 1,-48 0" />
+    <!-- Buste -->
+    <path
+        android:fillColor="#64748B"
+        android:pathData="M24,136c0,-24 16,-36 36,-36s36,12 36,36z" />
+    <!-- Tampon Passeport -->
+    <path
+        android:fillColor="#334155"
+        android:pathData="M40,146h40v4h-40z" />
+</vector>

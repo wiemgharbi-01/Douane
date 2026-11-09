@@ -1,9 +1,11 @@
 package com.example.douane;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class VerificationActivity extends AppCompatActivity {
 
     // Les elements mte3 l'interface graphique (IDs fihom initiales wg)
+    private ImageView ivPhotoPasseport;
     private TextView tvNomValeur;
     private TextView tvAgeValeur;
     private TextView tvMotifValeur;
@@ -29,6 +32,7 @@ public class VerificationActivity extends AppCompatActivity {
     private int anneeNaissance = 0;
     private int anneeDestination = 0;
     private String motifVoyage = "";
+    private String photoUriString = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class VerificationActivity extends AppCompatActivity {
         });
 
         // Nrecuperiw les elements mel XML bel findViewById
+        ivPhotoPasseport = findViewById(R.id.iv_photo_passeport_wg);
         tvNomValeur = findViewById(R.id.tv_nom_valeur_wg);
         tvAgeValeur = findViewById(R.id.tv_age_valeur_wg);
         tvMotifValeur = findViewById(R.id.tv_motif_valeur_wg);
@@ -66,6 +71,16 @@ public class VerificationActivity extends AppCompatActivity {
 
         // Nrecuperiw les extras mel Intent en utilisant la methode statique m3a matricule
         recupererDonneesIntent();
+
+        // Naffichiw el photo mte3 el voyageur ken moujouda fel extras
+        if (photoUriString != null && !photoUriString.trim().isEmpty()) {
+            try {
+                Uri uri = Uri.parse(photoUriString);
+                ivPhotoPasseport.setImageURI(uri);
+            } catch (Exception e) {
+                ivPhotoPasseport.setImageResource(R.drawable.ic_passport_avatar);
+            }
+        }
 
         // N7sbou l age temporel calculé (destination - naissance)
         int ageTemporel = anneeDestination - anneeNaissance;
@@ -114,6 +129,7 @@ public class VerificationActivity extends AppCompatActivity {
             String cleNaissance = MainActivity.genererCle(matricule, MainActivity.CLE_ANNEE_NAISSANCE);
             String cleDestination = MainActivity.genererCle(matricule, MainActivity.CLE_ANNEE_DESTINATION);
             String cleMotif = MainActivity.genererCle(matricule, MainActivity.CLE_MOTIF);
+            String cleImage = MainActivity.genererCle(matricule, MainActivity.CLE_IMAGE_URI);
 
             nomVoyageur = intent.getStringExtra(cleNom);
             if (nomVoyageur == null) nomVoyageur = "";
@@ -121,6 +137,7 @@ public class VerificationActivity extends AppCompatActivity {
             anneeDestination = intent.getIntExtra(cleDestination, 0);
             motifVoyage = intent.getStringExtra(cleMotif);
             if (motifVoyage == null) motifVoyage = "";
+            photoUriString = intent.getStringExtra(cleImage);
         }
     }
 

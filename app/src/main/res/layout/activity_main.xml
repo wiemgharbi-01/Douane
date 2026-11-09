@@ -58,6 +58,48 @@
                 android:orientation="vertical"
                 android:padding="18dp">
 
+                <!-- Section Photo du voyageur -->
+                <LinearLayout
+                    android:id="@+id/ll_photo_section_wg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_photo_preview_wg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="2dp"
+                        app:strokeColor="@color/border_color"
+                        app:strokeWidth="1.5dp">
+
+                        <ImageView
+                            android:id="@+id/iv_photo_preview_wg"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="Photo du voyageur"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_passport_avatar" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_choisir_photo_wg"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/btn_choisir_photo"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary_color"
+                        android:textSize="13sp"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="@color/primary_color"
+                        app:strokeWidth="1dp" />
+                </LinearLayout>
+
                 <!-- Champ 1 : Nom du voyageur -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_nom_wg"

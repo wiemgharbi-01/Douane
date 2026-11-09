@@ -5,6 +5,7 @@
     
     <string name="label_nom">Nom complet du voyageur</string>
     <string name="hint_nom">Ex: Marty McFly</string>
+    <string name="btn_choisir_photo">Choisir une photo de profil</string>
     
     <string name="label_annee_naissance">Année de naissance</string>
     <string name="hint_annee_naissance">Ex: 1968</string>

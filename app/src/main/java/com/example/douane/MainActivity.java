@@ -1,14 +1,18 @@
 package com.example.douane;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -31,13 +35,30 @@ public class MainActivity extends AppCompatActivity {
     public static final String CLE_ANNEE_DESTINATION = "ANNEE_DESTINATION";
     public static final String CLE_MOTIF = "MOTIF_VOYAGE";
     public static final String CLE_VERDICT = "VERDICT_FINAL";
+    public static final String CLE_IMAGE_URI = "IMAGE_URI";
 
     // Les elements mte3 l'interface graphique (IDs fihom initiales wg)
+    private ImageView ivPhotoPreview;
+    private Button btnChoisirPhoto;
     private TextInputEditText etNom;
     private TextInputEditText etAnneeNaissance;
     private TextInputEditText etAnneeDestination;
     private RadioGroup rgMotif;
     private Button btnInspecter;
+
+    // L'URI mte3 el photo elli khtarha el voyageur
+    private Uri photoUri = null;
+
+    // ActivityResultLauncher bech n7ellou el galérie w nkhtarou photo
+    private final ActivityResultLauncher<String> selectImageLauncher = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            uri -> {
+                if (uri != null) {
+                    photoUri = uri;
+                    ivPhotoPreview.setImageURI(uri);
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +87,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Nrecuperiw les elements mel XML bel findViewById
+        ivPhotoPreview = findViewById(R.id.iv_photo_preview_wg);
+        btnChoisirPhoto = findViewById(R.id.btn_choisir_photo_wg);
         etNom = findViewById(R.id.et_nom_wg);
         etAnneeNaissance = findViewById(R.id.et_annee_naissance_wg);
         etAnneeDestination = findViewById(R.id.et_annee_destination_wg);
         rgMotif = findViewById(R.id.rg_motif_wg);
         btnInspecter = findViewById(R.id.btn_inspecter_wg);
+
+        // Clic 3la bouton "Choisir une photo" walla 3la cadre el photo
+        View.OnClickListener pickPhotoListener = v -> selectImageLauncher.launch("image/*");
+        btnChoisirPhoto.setOnClickListener(pickPhotoListener);
+        findViewById(R.id.card_photo_preview_wg).setOnClickListener(pickPhotoListener);
 
         // Evenement au clic 3la bouton "Inspecter le profil"
         btnInspecter.setOnClickListener(v -> validerEtInspecterProfil());
@@ -128,6 +156,13 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(genererCle(MATRICULE_ETUDIANT, CLE_ANNEE_NAISSANCE), anneeNaissance);
         intent.putExtra(genererCle(MATRICULE_ETUDIANT, CLE_ANNEE_DESTINATION), anneeDestination);
         intent.putExtra(genererCle(MATRICULE_ETUDIANT, CLE_MOTIF), motif);
+
+        // N3adiw el photo ken l utilisateur khtar wa7da
+        if (photoUri != null) {
+            intent.putExtra(genererCle(MATRICULE_ETUDIANT, CLE_IMAGE_URI), photoUri.toString());
+            intent.setData(photoUri);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        }
 
         // Nlanziw el activite 2 bel startActivity
         startActivity(intent);

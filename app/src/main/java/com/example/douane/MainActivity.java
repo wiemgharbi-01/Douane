@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener pickPhotoListener = v -> selectImageLauncher.launch("image/*");
         btnChoisirPhoto.setOnClickListener(pickPhotoListener);
         findViewById(R.id.card_photo_preview_wg).setOnClickListener(pickPhotoListener);
+        View cameraBadge = findViewById(R.id.card_camera_badge_wg);
+        if (cameraBadge != null) {
+            cameraBadge.setOnClickListener(pickPhotoListener);
+        }
 
         // Evenement au clic 3la bouton "Inspecter le profil"
         btnInspecter.setOnClickListener(v -> validerEtInspecterProfil());

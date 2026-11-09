@@ -5,11 +5,16 @@
     <color name="primary_color">#1E3A8A</color>
     <color name="primary_variant">#172554</color>
     <color name="accent_color">#0284C7</color>
-    <color name="bg_light">#F8FAFC</color>
+    <color name="bg_light">#F1F5F9</color>
     <color name="card_bg">#FFFFFF</color>
     <color name="text_primary">#0F172A</color>
     <color name="text_secondary">#475569</color>
+    <color name="text_muted">#64748B</color>
     <color name="border_color">#CBD5E1</color>
+    <color name="border_subtle">#E2E8F0</color>
+    <color name="badge_bg">#DBEAFE</color>
+    <color name="badge_text">#1E40AF</color>
+    <color name="radio_container_bg">#F8FAFC</color>
 
     <!-- Couleurs Passeport & Billet -->
     <color name="passport_bg">#F4F1EA</color>

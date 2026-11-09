@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Douane Temporelle</string>
-    <string name="titre_formulaire">Poste de Douane Temporelle</string>
-    <string name="sous_titre_formulaire">Enregistrement et contrôle des voyageurs</string>
+    <string name="badge_poste">POSTE DE CONTRÔLE TEMPOREL N°404</string>
+    <string name="titre_formulaire">Douane Temporelle</string>
+    <string name="sous_titre_formulaire">Enregistrement et inspection des voyageurs</string>
     
     <string name="label_nom">Nom complet du voyageur</string>
     <string name="hint_nom">Ex: Marty McFly</string>
-    <string name="btn_choisir_photo">Choisir une photo de profil</string>
+    <string name="btn_choisir_photo">Toucher pour choisir la photo</string>
     
     <string name="label_annee_naissance">Année de naissance</string>
     <string name="hint_annee_naissance">Ex: 1968</string>
@@ -13,7 +14,7 @@
     <string name="label_annee_destination">Année de destination</string>
     <string name="hint_annee_destination">Ex: 2050</string>
     
-    <string name="label_motif">Motif du voyage :</string>
+    <string name="label_motif">Motif du saut temporel</string>
     <string name="motif_tourisme">Tourisme</string>
     <string name="motif_modification">Modification du passé</string>
     <string name="motif_fuite">Fuite</string>

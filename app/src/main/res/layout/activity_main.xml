@@ -16,16 +16,33 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- En-tête : Titre et sous-titre de l'application -->
+        <!-- Badge officiel du poste frontalier temporel -->
+        <TextView
+            android:id="@+id/tv_badge_poste_wg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_badge_poste"
+            android:letterSpacing="0.08"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="5dp"
+            android:text="@string/badge_poste"
+            android:textColor="@color/badge_text"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!-- En-tête : Titre et sous-titre stylisés -->
         <TextView
             android:id="@+id/tv_titre_wg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
+            android:letterSpacing="0.02"
             android:text="@string/titre_formulaire"
             android:textColor="@color/primary_color"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
@@ -33,125 +50,177 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="18dp"
             android:gravity="center"
             android:text="@string/sous_titre_formulaire"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/text_muted"
             android:textSize="14sp" />
 
-        <!-- Carte contenant le formulaire -->
+        <!-- Carte principale contenant le formulaire -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_form_wg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/card_bg"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="3dp"
-            app:strokeColor="@color/border_color"
-            app:strokeWidth="1dp">
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="1.5dp">
 
             <LinearLayout
                 android:id="@+id/ll_form_content_wg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="18dp">
+                android:padding="20dp">
 
-                <!-- Section Photo du voyageur -->
+                <!-- Section Photo du voyageur avec badge caméra -->
                 <LinearLayout
                     android:id="@+id/ll_photo_section_wg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="18dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card_photo_preview_wg"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="2dp"
-                        app:strokeColor="@color/border_color"
-                        app:strokeWidth="1.5dp">
+                    <FrameLayout
+                        android:id="@+id/fl_photo_container_wg"
+                        android:layout_width="104dp"
+                        android:layout_height="104dp">
 
-                        <ImageView
-                            android:id="@+id/iv_photo_preview_wg"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="Photo du voyageur"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_passport_avatar" />
-                    </com.google.android.material.card.MaterialCardView>
+                        <!-- Photo de profil avec bordure -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_photo_preview_wg"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="50dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="@color/primary_color"
+                            app:strokeWidth="2dp">
 
+                            <ImageView
+                                android:id="@+id/iv_photo_preview_wg"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Photo officielle du voyageur"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_passport_avatar" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Pastille caméra en bas à droite -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_camera_badge_wg"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom|end"
+                            app:cardBackgroundColor="@color/primary_color"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="4dp"
+                            app:strokeColor="@color/white"
+                            app:strokeWidth="1.5dp">
+
+                            <ImageView
+                                android:id="@+id/iv_camera_badge_wg"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Icône appareil photo"
+                                android:src="@drawable/ic_camera_badge" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </FrameLayout>
+
+                    <!-- Bouton / lien textuel pour choisir la photo -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_choisir_photo_wg"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="4dp"
                         android:text="@string/btn_choisir_photo"
                         android:textAllCaps="false"
-                        android:textColor="@color/primary_color"
-                        android:textSize="13sp"
-                        app:cornerRadius="8dp"
-                        app:strokeColor="@color/primary_color"
-                        app:strokeWidth="1dp" />
+                        android:textColor="@color/accent_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Champ 1 : Nom du voyageur -->
+                <!-- Champ 1 : Nom du voyageur avec icône utilisateur -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_nom_wg"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:hint="@string/label_nom">
+                    android:hint="@string/label_nom"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_nom_wg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName|textCapWords"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Champ 2 : Année de naissance -->
+                <!-- Champ 2 : Année de naissance avec icône calendrier -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_annee_naissance_wg"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:hint="@string/label_annee_naissance">
+                    android:hint="@string/label_annee_naissance"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:startIconDrawable="@drawable/ic_calendar_birth"
+                    app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_annee_naissance_wg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Champ 3 : Année de destination -->
+                <!-- Champ 3 : Année de destination avec icône temps / horloge -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_annee_destination_wg"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="18dp"
-                    android:hint="@string/label_annee_destination">
+                    android:hint="@string/label_annee_destination"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:startIconDrawable="@drawable/ic_timeline_destination"
+                    app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_annee_destination_wg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="@color/text_primary" />
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Champ 4 : Motif du voyage -->
+                <!-- Champ 4 : Titre Motif du saut temporel -->
                 <TextView
                     android:id="@+id/tv_motif_label_wg"
                     android:layout_width="match_parent"
@@ -159,61 +228,92 @@
                     android:layout_marginBottom="8dp"
                     android:text="@string/label_motif"
                     android:textColor="@color/text_primary"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <RadioGroup
-                    android:id="@+id/rg_motif_wg"
+                <!-- Container stylisé pour les options de motifs -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_motif_container_wg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    app:cardBackgroundColor="@color/radio_container_bg"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_subtle"
+                    app:strokeWidth="1dp">
 
-                    <RadioButton
-                        android:id="@+id/rb_tourisme_wg"
+                    <RadioGroup
+                        android:id="@+id/rg_motif_wg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:paddingVertical="4dp"
-                        android:text="@string/motif_tourisme"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                    <RadioButton
-                        android:id="@+id/rb_modification_wg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="4dp"
-                        android:text="@string/motif_modification"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
+                        <RadioButton
+                            android:id="@+id/rb_tourisme_wg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:paddingVertical="8dp"
+                            android:text="@string/motif_tourisme"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
 
-                    <RadioButton
-                        android:id="@+id/rb_fuite_wg"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="4dp"
-                        android:text="@string/motif_fuite"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp" />
-                </RadioGroup>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:background="@color/border_subtle" />
+
+                        <RadioButton
+                            android:id="@+id/rb_modification_wg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="8dp"
+                            android:text="@string/motif_modification"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:background="@color/border_subtle" />
+
+                        <RadioButton
+                            android:id="@+id/rb_fuite_wg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="8dp"
+                            android:text="@string/motif_fuite"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Bouton d'action pour inspecter le profil -->
+        <!-- Bouton principal d'action : Inspecter le profil -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_inspecter_wg"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
             android:backgroundTint="@color/primary_color"
+            android:elevation="3dp"
+            android:letterSpacing="0.02"
             android:text="@string/btn_inspecter"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:cornerRadius="12dp"
-            app:iconGravity="textStart" />
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_search_scan"
+            app:iconGravity="textStart"
+            app:iconPadding="10dp"
+            app:iconTint="@color/white" />
 
     </LinearLayout>
 </ScrollView>
